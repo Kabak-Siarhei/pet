@@ -1,0 +1,27 @@
+targets:
+  $default:
+    builders:
+      retrofit_generator:
+        enabled: true
+        generate_for:
+          include:
+            - lib/data/data_sources/remote/**.dart
+        options:
+          nullsafety: true
+
+      json_serializable:
+        generate_for:
+          include:
+            - lib/data/models/**.dart
+        options:
+          explicit_to_json: false
+          include_if_null: false
+          checked: true
+          disallow_unrecognized_keys: true
+          field_rename: snake
+
+      freezed:
+        generate_for:
+          include:
+            - lib/data/models/**.dart
+            - lib/presentation/**.dart
